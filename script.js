@@ -17,12 +17,14 @@ function renderTasks() {
       .querySelector('input[type="checkbox"]')
       .addEventListener("change", function () {
         task.status = !task.status;
+        localStorage.setItem("tasks", JSON.stringify(tasks));
         renderTasks();
       });
     ul.lastElementChild
       .querySelector("button")
       .addEventListener("click", function () {
         tasks.splice(index, 1);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
         renderTasks();
       });
   });
